@@ -6,7 +6,7 @@
 /*   By: ekamada <ekamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 06:45:56 by ekamada           #+#    #+#             */
-/*   Updated: 2023/07/29 09:32:35 by ekamada          ###   ########.fr       */
+/*   Updated: 2023/07/29 10:44:46 by ekamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 #include <stdio.h>
 #include "../includes/fractol.h"
 
-int exit_program(int keycode, void *param)
+int exit_program(int keycode, mlx_list *list)
 {
-	printf("this is keycode :%d\n", keycode);
+
 	if (keycode == 65307)
 	{
-    	mlx_loop_end(param);
+    	mlx_destroy_window(list->mlx_ptr, list->win_ptr);
+		mlx_destroy_image(list->mlx_ptr, list->img_ptr);
+		exit(0);
     	return (0);
 	}
 	return (0);
@@ -40,8 +42,6 @@ int	close_program(void *param)
 int	scroll_event(int keycode, int x, int y, void *param)
 {
 	mlx_list *list;
-	printf("thisi s my ketyxods%d\n", keycode);
-	printf("hellooooo");
 
 	x = 0;
 	y = 0;

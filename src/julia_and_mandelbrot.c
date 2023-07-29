@@ -6,7 +6,7 @@
 /*   By: ekamada <ekamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 02:29:30 by ekamada           #+#    #+#             */
-/*   Updated: 2023/07/29 09:23:24 by ekamada          ###   ########.fr       */
+/*   Updated: 2023/07/29 10:04:17 by ekamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	julia_and_mandelbrot(float x, float y, float a, float b)
 	float	z_imag = y;
 	float	tmp_real = 0;
 	float	tmp_imag = 0;
-	int loop;
+	int		loop;
 
 	loop = 1;
 	while (loop < 255)
