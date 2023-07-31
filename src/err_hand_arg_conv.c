@@ -6,7 +6,7 @@
 /*   By: ekamada <ekamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 03:22:45 by ekamada           #+#    #+#             */
-/*   Updated: 2023/07/29 05:33:43 by ekamada          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:44:57 by ekamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ float	after_point(char *av, int i)
 	return (result);
 }
 
-
 float	a_to_float(int *error_num, char *av)
 {
 	float	result;
@@ -50,8 +49,8 @@ float	a_to_float(int *error_num, char *av)
 	i = 0;
 	if (av[i] == '-')
 		minus *= -1;
-	if(av[i] == '-' || av[i] == '+')
-		i++;
+	if (av[i] == '-' || av[i] == '+')
+		i ++;
 	while (av[i] != '.' && av[i] != '\0')
 	{
 		if (result != 0 && av[i] != '.')
@@ -79,11 +78,11 @@ int	is_int_or_float(char *av[])
 		point_count = 0;
 		while (av[i][j] != '\0')
 		{
-			if(av[i][j] == '.')
+			if (av[i][j] == '.')
 				point_count++;
 			else if (j == 0 && (av[i][j] == '+' || av[i][j] == '-'))
 				;
-			else if (av[i][j] > '9'|| av[i][j] < '0')
+			else if (av[i][j] > '9' || av[i][j] < '0')
 				return (1);
 			if (point_count > 1)
 				return (1);
@@ -97,7 +96,6 @@ int	is_int_or_float(char *av[])
 int	error_handling_and_arg_convert(int ac, char *av[], float *real, float *img)
 {
 	int		error_num;
-
 
 	error_num = 0;
 	if (!(ac == 2 || ac == 4))
@@ -113,7 +111,7 @@ int	error_handling_and_arg_convert(int ac, char *av[], float *real, float *img)
 		if (!*av[2] || !*av[3])
 			return (1);
 		if (is_int_or_float(av) != 0)
-			return(1);
+			return (1);
 		*real = a_to_float(&error_num, av[2]);
 		*img = a_to_float(&error_num, av[3]);
 		if (error_num != 0)
